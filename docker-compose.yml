@@ -3,8 +3,6 @@ services:
   postgres:
     container_name: postgres
     image: postgres:latest
-    ports:
-      - "5432:5432"
     volumes:
       - /data/postgres:/data/postgres
     env_file:
@@ -23,6 +21,15 @@ services:
       - /data/pgadmin:/root/.pgadmin
     env_file:
       - docker.env
+    networks:
+      - postgres
+
+  nestjs-api:
+    image: nestjs-api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
     networks:
       - postgres
 
