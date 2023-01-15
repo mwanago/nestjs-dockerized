@@ -1,8 +1,7 @@
 version: "3"
 services:
   postgres:
-    container_name: postgres
-    image: postgres:latest
+    image: postgres:15.1
     volumes:
       - /data/postgres:/data/postgres
     env_file:
@@ -11,10 +10,7 @@ services:
       - postgres
 
   pgadmin:
-    links:
-      - postgres:postgres
-    container_name: pgadmin
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:6.18
     ports:
       - "8080:80"
     volumes:
