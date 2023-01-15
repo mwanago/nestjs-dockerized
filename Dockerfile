@@ -2,11 +2,9 @@ FROM node:18-alpine
 
 WORKDIR /user/src/app
 
-COPY ./package.json ./package-lock.json ./
+COPY . .
 
 RUN npm ci
-
-COPY . .
 
 EXPOSE 3000
 
