@@ -4,7 +4,7 @@ WORKDIR /user/src/app
 
 COPY . .
 
-RUN npm ci
+RUN npm ci --omit=dev
 
 RUN npm run build
 
