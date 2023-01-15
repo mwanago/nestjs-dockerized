@@ -32,6 +32,8 @@ services:
       - postgres
     networks:
       - postgres
+    env_file:
+      - .env
 
 networks:
   postgres:
