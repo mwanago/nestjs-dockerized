@@ -23,8 +23,12 @@ services:
   nestjs-api:
     build:
       context: .
+      target: install-dependencies
+    volumes:
+      - .:/user/src/app
     env_file:
       - .env
+    command: npm run start:dev
     ports:
       - "3000:3000"
     depends_on:
