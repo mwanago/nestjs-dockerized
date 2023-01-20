@@ -20,12 +20,12 @@ RUN npm run build
 USER node
 
 
-FROM node:18-alpine AS release
+FROM node:18-alpine AS run
 
 WORKDIR /user/src/app
 
 COPY --from=install-dependencies /user/src/app/node_modules ./node_modules
 COPY --from=create-build /user/src/app/dist ./dist
-COPY package.json package-lock.json ./
+COPY package.json ./
 
 CMD ["npm", "run", "start:prod"]
