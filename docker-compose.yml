@@ -21,7 +21,8 @@ services:
       - docker.env
 
   nestjs-api:
-    image: nestjs-api
+    build:
+      context: .
     env_file:
       - .env
     ports:
