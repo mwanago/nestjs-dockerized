@@ -1,3 +1,5 @@
+# Installing dependencies:
+
 FROM node:18-alpine AS install-dependencies
 
 WORKDIR /user/src/app
@@ -9,6 +11,8 @@ RUN npm ci --omit=dev
 COPY . .
 
 
+# Creating a build:
+
 FROM node:18-alpine AS create-build
 
 WORKDIR /user/src/app
@@ -19,6 +23,8 @@ RUN npm run build
 
 USER node
 
+
+# Running the application:
 
 FROM node:18-alpine AS run
 
