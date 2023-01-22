@@ -11,6 +11,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
+    "start:inspect": "nest start --debug 0.0.0.0:9229 --watch --exec 'node --inspect-brk'",
     "start:prod": "node dist/main",
     "start:repl": "nest start --entryFile repl",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
