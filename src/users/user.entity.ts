@@ -9,20 +9,25 @@ import {
 import { Exclude } from 'class-transformer';
 import Address from './address.entity';
 import Post from '../posts/post.entity';
+import {ApiProperty} from "@nestjs/swagger";
 
 @Entity()
 class User {
   @PrimaryGeneratedColumn()
+  @ApiProperty()
   public id: number;
 
   @Column({ unique: true })
+  @ApiProperty()
   public email: string;
 
   @Column()
+  @ApiProperty()
   public name: string;
 
   @Column()
   @Exclude()
+  @ApiProperty()
   public password: string;
 
   @OneToOne(() => Address, {

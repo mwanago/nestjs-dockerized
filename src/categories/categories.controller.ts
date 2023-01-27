@@ -15,7 +15,9 @@ import CreateCategoryDto from './dto/createCategory.dto';
 import UpdateCategoryDto from './dto/updateCategory.dto';
 import JwtAuthenticationGuard from '../authentication/jwt-authentication.guard';
 import FindOneParams from '../utils/findOneParams';
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('Categories Controller')
 @Controller('categories')
 @UseInterceptors(ClassSerializerInterceptor)
 export default class CategoriesController {
