@@ -14,7 +14,9 @@ import RegisterDto from './dto/register.dto';
 import RequestWithUser from './requestWithUser.interface';
 import { LocalAuthenticationGuard } from './localAuthentication.guard';
 import JwtAuthenticationGuard from './jwt-authentication.guard';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Authentication Controller')
 @Controller('authentication')
 @UseInterceptors(ClassSerializerInterceptor)
 export class AuthenticationController {

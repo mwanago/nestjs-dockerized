@@ -17,7 +17,9 @@ import UpdatePostDto from './dto/updatePost.dto';
 import JwtAuthenticationGuard from '../authentication/jwt-authentication.guard';
 import FindOneParams from '../utils/findOneParams';
 import RequestWithUser from '../authentication/requestWithUser.interface';
+import {ApiTags} from "@nestjs/swagger";
 
+@ApiTags('Posts Controller')
 @Controller('posts')
 @UseInterceptors(ClassSerializerInterceptor)
 export default class PostsController {
