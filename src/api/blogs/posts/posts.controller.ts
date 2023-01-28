@@ -14,9 +14,9 @@ import {
 import PostsService from './posts.service';
 import CreatePostDto from './dto/createPost.dto';
 import UpdatePostDto from './dto/updatePost.dto';
-import JwtAuthenticationGuard from '../authentication/jwt-authentication.guard';
-import FindOneParams from '../utils/findOneParams';
-import RequestWithUser from '../authentication/requestWithUser.interface';
+import JwtAuthenticationGuard from '../../../security/authentication/jwt-authentication.guard';
+import FindOneParams from '../../../utils/findOneParams';
+import RequestWithUser from '../../../security/authentication/requestWithUser.interface';
 import {ApiTags} from "@nestjs/swagger";
 
 @ApiTags('Posts Controller')

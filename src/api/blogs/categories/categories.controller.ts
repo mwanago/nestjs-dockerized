@@ -13,8 +13,8 @@ import {
 import CategoriesService from './categories.service';
 import CreateCategoryDto from './dto/createCategory.dto';
 import UpdateCategoryDto from './dto/updateCategory.dto';
-import JwtAuthenticationGuard from '../authentication/jwt-authentication.guard';
-import FindOneParams from '../utils/findOneParams';
+import JwtAuthenticationGuard from '../../../security/authentication/jwt-authentication.guard';
+import FindOneParams from '../../../utils/findOneParams';
 import {ApiTags} from "@nestjs/swagger";
 
 @ApiTags('Categories Controller')

@@ -5,7 +5,7 @@ import UpdatePostDto from './dto/updatePost.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import PostNotFoundException from './exceptions/postNotFound.exception';
-import User from '../users/user.entity';
+import User from '../../users/user.entity';
 
 @Injectable()
 export default class PostsService {

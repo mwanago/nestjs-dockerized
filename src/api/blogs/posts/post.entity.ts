@@ -6,7 +6,7 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import User from '../users/user.entity';
+import User from '../../users/user.entity';
 import Category from '../categories/category.entity';
 import {ApiProperty} from "@nestjs/swagger";
 
