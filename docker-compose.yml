@@ -1,14 +1,18 @@
-version: "3"
+version: '3.8'
 services:
   postgres:
     image: postgres:15.1
     networks:
       - postgres
+    ports:
+      - "5432:5432"
     volumes:
       - /data/postgres:/data/postgres
-    env_file:
-      - docker.env
 
+    environment:
+      POSTGRES_USER: systemadmin
+      POSTGRES_PASSWORD: D3v!L1981!Killer00!
+      POSTGRES_DB: metacubic
   pgadmin:
     image: dpage/pgadmin4:6.18
     networks:
@@ -17,15 +21,14 @@ services:
       - "8080:80"
     volumes:
       - /data/pgadmin:/root/.pgadmin
-    env_file:
-      - docker.env
 
-  nestjs-api:
-    image: metacore-api
-    env_file:
-      - .env
+    environment:
+      PGADMIN_DEFAULT_EMAIL: support@metacubic.org
+      PGADMIN_DEFAULT_PASSWORD: Killer00!D3v!L1981!
+  metacore:
+    image: dcenttech/metacore:latest
     ports:
-      - "3001:3001"
+      - "3021:3021"
     depends_on:
       - postgres
     networks:
