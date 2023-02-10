@@ -1,4 +1,4 @@
-import User from '../../../api/users/user.entity';
+import User from '../../../api/users/entities/user.entity';
 
 const mockedUser: User = {
   id: 1,

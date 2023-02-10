@@ -5,7 +5,7 @@ import {
   ManyToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import Post from '../posts/post.entity';
+import Post from '../posts/entities/post.entity';
 import {ApiProperty} from "@nestjs/swagger";
 
 @Entity()

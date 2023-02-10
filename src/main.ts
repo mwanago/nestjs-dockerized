@@ -5,12 +5,12 @@ import * as compression from 'compression';
 import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { setupSwagger } from "./config/swagger/swagger.config";
-import { join } from "path";
+import { setupSwagger } from './config/swagger/swagger.config';
+import { join } from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
-    logger: ['error', 'warn', 'debug'],
+    // logger: ['error', 'warn', 'debug'],
     cors: true,
   });
   const globalPrefix = 'v1';
@@ -23,18 +23,18 @@ async function bootstrap() {
     credentials: true,
   });
   app.useGlobalPipes(
-      new ValidationPipe({
-        whitelist: true,
-        forbidNonWhitelisted: true,
-        transform: true,
-      }),
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
   );
   const configService = app.get(ConfigService);
 
   app.useGlobalPipes(
-      new ValidationPipe({
-        transform: true,
-      }),
+    new ValidationPipe({
+      transform: true,
+    }),
   );
   app.use(cookieParser());
   app.use(compression());
@@ -44,5 +44,6 @@ async function bootstrap() {
 
   setupSwagger(app);
   await app.listen(configService.get('PORT'));
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 void bootstrap();

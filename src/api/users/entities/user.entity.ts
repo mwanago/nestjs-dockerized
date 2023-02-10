@@ -8,10 +8,10 @@ import {
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import Address from './address.entity';
-import Post from '../blogs/posts/post.entity';
-import {ApiProperty} from "@nestjs/swagger";
+import Post from '../../blogs/posts/entities/post.entity';
+import { ApiProperty } from '@nestjs/swagger';
 
-@Entity()
+@Entity('user', { schema: 'meu' })
 class User {
   @PrimaryGeneratedColumn()
   @ApiProperty()

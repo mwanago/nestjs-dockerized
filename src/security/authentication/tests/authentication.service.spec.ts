@@ -3,7 +3,7 @@ import { Test } from '@nestjs/testing';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import User from '../../../api/users/user.entity';
+import User from '../../../api/users/entities/user.entity';
 import { UsersService } from '../../../api/users/users.service';
 import mockedJwtService from '../../utils/mocks/jwt.service';
 import mockedConfigService from '../../utils/mocks/config.service';

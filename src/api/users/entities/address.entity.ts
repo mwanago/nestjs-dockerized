@@ -1,8 +1,8 @@
 import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import User from './user.entity';
-import {ApiProperty} from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 
-@Entity()
+@Entity('address', { schema: 'meu' })
 class Address {
   @PrimaryGeneratedColumn()
   @ApiProperty()
