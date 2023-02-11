@@ -6,6 +6,8 @@ import { DatabaseModule } from './database/database.module';
 import { AuthenticationModule } from './security/authentication/authentication.module';
 import { UsersModule } from './api/users/users.module';
 import { CategoriesModule } from './api/blogs/categories/categories.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -23,6 +25,9 @@ import { CategoriesModule } from './api/blogs/categories/categories.module';
         JWT_EXPIRATION_TIME: Joi.string().required(),
         PORT: Joi.number(),
       }),
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'www'),
     }),
     DatabaseModule,
     AuthenticationModule,

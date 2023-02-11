@@ -20,9 +20,6 @@ export function setupSwagger(app: INestApplication) {
     .addSecurityRequirements('bearer')
     .addBearerAuth()
     .addTag('M³ BaaS API', 'SaaS [metacubic.org]')
-    .addServer('https://api.metacubic.org/', 'Production Server')
-    .addServer('https://api.metacubic.org/', 'Development Server')
-    .addServer('http://localhost:3001/', 'Localhost Server')
     .build();
   const document = SwaggerModule.createDocument(app, options);
   const extraOptions = {
@@ -32,10 +29,6 @@ export function setupSwagger(app: INestApplication) {
     customFavicon: 'https://metacubic.org/favicon.ico',
     customSiteTitle: 'M³ BaaS API',
     url: 'https://api.metacubic.org/v1',
-    urls: [
-      { url: 'https://api.metacubic.org/v1', name: 'Production Server' },
-      { url: 'https://api.metacubic.org/v2', name: 'Development Server' },
-    ],
   };
   SwaggerModule.setup('/v1', app, document, extraOptions);
 }

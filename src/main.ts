@@ -16,12 +16,6 @@ async function bootstrap() {
   const globalPrefix = 'v1';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3001;
-  app.enableCors({
-    origin: '*', // TODO: change this if necessary
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type, Accept, Authorization',
-    credentials: true,
-  });
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -38,8 +32,8 @@ async function bootstrap() {
   );
   app.use(cookieParser());
   app.use(compression());
-  app.useStaticAssets(join(__dirname, '..', 'client/assets'));
-  app.setBaseViewsDir(join(__dirname, '..', 'client'));
+  app.useStaticAssets(join(__dirname, '..', 'www/assets'));
+  app.setBaseViewsDir(join(__dirname, '..', 'www'));
   app.setViewEngine('ejs');
 
   setupSwagger(app);

@@ -15,6 +15,7 @@ import Address from '../api/users/entities/address.entity';
         username: configService.get('POSTGRES_USER'),
         password: configService.get('POSTGRES_PASSWORD'),
         database: configService.get('POSTGRES_DB'),
+        schema: configService.get('POSTGRES_SCHEMA'),
         entities: [Address],
         synchronize: true,
         autoLoadEntities: true,
