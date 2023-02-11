@@ -27,7 +27,7 @@ import { join } from 'path';
       }),
     }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'www'),
+      rootPath: join(__dirname, '..', 'src/www'),
     }),
     DatabaseModule,
     AuthenticationModule,
