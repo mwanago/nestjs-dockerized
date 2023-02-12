@@ -7,7 +7,6 @@ import { ConfigService } from '@nestjs/config';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { setupSwagger } from './config/swagger/swagger.config';
 import { join } from 'path';
-import { setupMedia } from './config/media/media.config';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
@@ -38,7 +37,7 @@ async function bootstrap() {
   app.setViewEngine('ejs');
 
   setupSwagger(app);
-  setupMedia(app);
+  // setupMedia(app);
   await app.listen(configService.get('PORT'));
   console.log(`Application is running on: ${await app.getUrl()}`);
 }

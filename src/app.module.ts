@@ -8,7 +8,6 @@ import { UsersModule } from './api/users/users.module';
 import { CategoriesModule } from './api/blogs/categories/categories.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
-import { MediaModule } from '@mediaengine/media';
 
 @Module({
   imports: [
@@ -33,7 +32,6 @@ import { MediaModule } from '@mediaengine/media';
     DatabaseModule,
     AuthenticationModule,
     UsersModule,
-    MediaModule,
   ],
   controllers: [],
   providers: [],
