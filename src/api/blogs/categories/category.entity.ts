@@ -16,7 +16,7 @@ class Category {
 
   @Column()
   @ApiProperty()
-  public name: string;
+  public username: string;
 
   @ManyToMany(() => Post, (post: Post) => post.categories)
   public posts: Post[];

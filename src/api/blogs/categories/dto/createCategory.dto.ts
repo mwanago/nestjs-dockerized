@@ -5,7 +5,7 @@ export class CreateCategoryDto {
   @IsString()
   @IsNotEmpty()
   @ApiProperty()
-  name: string;
+  username: string;
 }
 
 export default CreateCategoryDto;

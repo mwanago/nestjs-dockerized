@@ -29,6 +29,16 @@ export function setupSwagger(app: INestApplication) {
     customFavicon: 'https://metacubic.org/favicon.ico',
     customSiteTitle: 'M³ BaaS API',
     url: 'https://api.metacubic.org/v1',
+    servers: [
+      {
+        url: 'https://api.metacubic.org/v1',
+        description: 'Production',
+      },
+      {
+        url: 'http://localhost:3021/v1',
+        description: 'Development',
+      },
+    ],
   };
   SwaggerModule.setup('/v1', app, document, extraOptions);
 }

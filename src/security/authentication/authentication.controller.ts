@@ -17,7 +17,7 @@ import JwtAuthenticationGuard from './jwt-authentication.guard';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Authentication Controller')
-@Controller('authentication')
+@Controller('auth')
 @UseInterceptors(ClassSerializerInterceptor)
 export class AuthenticationController {
   constructor(private readonly authenticationService: AuthenticationService) {}

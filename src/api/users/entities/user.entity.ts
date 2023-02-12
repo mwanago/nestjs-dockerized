@@ -23,7 +23,7 @@ class User {
 
   @Column()
   @ApiProperty()
-  public name: string;
+  public username: string;
 
   @Column()
   @Exclude()
@@ -39,6 +39,8 @@ class User {
 
   @OneToMany(() => Post, (post: Post) => post.author)
   public posts?: Post[];
+
+  streamKey: string;
 }
 
 export default User;

@@ -3,12 +3,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import User from './entities/user.entity';
 import CreateUserDto from './dto/createUser.dto';
+import { MediaService } from '@mediaengine/media';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
+    private mediaService: MediaService,
   ) {}
 
   async getByEmail(email: string) {
@@ -37,5 +39,9 @@ export class UsersService {
     const newUser = await this.usersRepository.create(userData);
     await this.usersRepository.save(newUser);
     return newUser;
+  }
+
+  async getUser() {
+    return await this.usersRepository.find();
   }
 }

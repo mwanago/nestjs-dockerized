@@ -11,7 +11,7 @@ export class UpdateCategoryDto {
   @IsNotEmpty()
   @IsOptional()
   @ApiProperty()
-  name: string;
+  username: string;
 }
 
 export default UpdateCategoryDto;

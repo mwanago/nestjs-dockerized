@@ -9,5 +9,5 @@ export interface ExpressSwaggerCustomOptions {
   customSiteTitle?: string;
   validatorUrl?: string;
   url?: string;
-  urls?: Record<'url' | 'name', string>[];
+  urls?: Record<'url' | 'username', string>[];
 }
