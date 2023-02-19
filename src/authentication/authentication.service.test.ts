@@ -1,28 +1,24 @@
-import { AuthenticationService } from '../authentication.service';
 import { Test } from '@nestjs/testing';
-import { ConfigService } from '@nestjs/config';
-import { JwtService } from '@nestjs/jwt';
+import { ConfigModule } from '@nestjs/config';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import User from '../../users/user.entity';
-import { UsersService } from '../../users/users.service';
-import mockedJwtService from '../../utils/mocks/jwt.service';
-import mockedConfigService from '../../utils/mocks/config.service';
+import { AuthenticationService } from './authentication.service';
+import { UsersService } from '../users/users.service';
+import User from '../users/user.entity';
+import { JwtModule } from '@nestjs/jwt';
 
 describe('The AuthenticationService', () => {
   let authenticationService: AuthenticationService;
   beforeEach(async () => {
     const module = await Test.createTestingModule({
+      imports: [
+        ConfigModule.forRoot(),
+        JwtModule.register({
+          secretOrPrivateKey: 'Secret key',
+        }),
+      ],
       providers: [
         UsersService,
         AuthenticationService,
-        {
-          provide: ConfigService,
-          useValue: mockedConfigService,
-        },
-        {
-          provide: JwtService,
-          useValue: mockedJwtService,
-        },
         {
           provide: getRepositoryToken(User),
           useValue: {},
